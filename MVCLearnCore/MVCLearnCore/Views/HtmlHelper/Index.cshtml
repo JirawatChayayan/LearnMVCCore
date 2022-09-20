@@ -1,0 +1,60 @@
+﻿@model MVCLearnCore.Models.MemBerData
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<br /><br />
+
+<form asp-action="Index" asp-controller="HtmlHelper">
+    <label asp-for="NAME"></label>
+    <input type= "text" asp-for="NAME" class="form-control" />
+    <br/>
+    <label asp-for="LASTNAME"></label>
+    <input type= "text" asp-for="LASTNAME" class="form-control" />
+    <br />
+    <label asp-for="JOB"></label>
+    <select asp-for="JOB" class="form-select dropdown">
+        <option value="J001">Engineer</option>
+        <option value="J002">Docter</option>
+        <option value="J003">Teacher</option>
+    </select>
+    <br />
+    <label asp-for="MOBILE"></label>
+    @*<input type="text" asp-for="MOBILE" class="form-control"/>*@
+    <textarea class="form-control" asp-for ="MOBILE" cols="50" rows="10">
+
+    </textarea>
+    <span asp-validation-for="MOBILE" class="text-danger"></span>
+
+    <br />
+    <label asp-for="HOBBY"></label>
+    <select asp-for="HOBBY" size="5" multiple class="form-control">
+        
+            <option value="H001">Anime</option> 
+            <option value="H002">Aquascaping</option> 
+            <option value="H003">Art</option> 
+            <option value="H004">Astrology</option> 
+            <option value="H005">Astronomy</option> 
+            <option value="H006">Baking</option> 
+            <option value="H007">Barbershop Music</option> 
+            <option value="H008">Bartending</option> 
+
+    </select>
+
+    <br />
+
+    <label asp-for="SEX"></label>
+
+    Male : <input type="radio" asp-for="SEX" value="Male" checked/>
+    Female : <input type="radio" asp-for="SEX" value = "Female" />
+
+    <br />
+    <br />
+    <input id="btn" class="btn btn-primary" type="submit" value="Save" />
+    <br />
+
+
+</form>

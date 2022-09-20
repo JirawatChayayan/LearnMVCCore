@@ -1,0 +1,114 @@
+﻿
+@model MVCLearnCore.Models.Employee
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <p>TempData</p>
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                Code
+            </td>
+            <td>
+                @{
+                    if(@Model.Code != null)
+                    {
+                        <span class="text-danger front-weight-bold">@Model.Code</span>
+                    }
+                
+                }
+
+            </td>
+        </tr>
+                <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                @{
+                    if(@Model.Name != null)
+                    {
+                        <span class="text-info front-weight-bold">@Model.Name</span>
+                        
+                    }
+                    else
+                    {
+                        //No data
+                    }
+                }
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobile
+            </td>
+            <td>
+                @{
+                    if(@Model.Mobile != null)
+                    {
+                       <span class="text-info front-weight-bold">@Model.Mobile</span>
+                    }
+                    else
+                    {
+                       //No data
+                    }
+                }
+
+            </td>
+        </tr>
+    </table>
+    <br />
+    <p>View Bag</p>
+    <table class="table table-bordered">
+        <tr>
+            <td >
+                @ViewBag.y
+            </td>
+            <td>
+                @{
+                    if(ViewBag.z != null)
+                    {
+                        var uuu = ViewBag.X as Employee;
+                        string data = uuu.Code + " " + uuu.Name;
+                        @data
+                    }
+                }
+            </td>
+        </tr>
+    </table>
+    <br />
+    <p>View Data</p>
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                Code
+            </td>
+            <td>
+                Name
+            </td>
+        </tr>
+        @{
+            if(ViewData.ContainsKey("lst"))
+            {
+                var lst = ViewData["lst"] as List<Employee>;
+                foreach(var aaa in lst)
+                {
+                    <tr>
+                        <td>
+                            @aaa.Code
+                        </td>
+                        <td>
+                            @aaa.Name
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+
+</div>
+

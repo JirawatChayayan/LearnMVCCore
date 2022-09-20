@@ -1,0 +1,46 @@
+﻿
+@model MVCLearnCore.Models.MemBerData
+
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Register</h1>
+
+<form asp-action="Register" asp-controller="Register">
+    <table class="table table-border">
+        <tr>
+            <td>
+                <label asp-for="NAME"></label>
+            </td>
+            <td>
+                <input asp-for="NAME" class="form-control"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="LASTNAME"></label>
+            </td>
+            <td>
+                <input asp-for="LASTNAME" class="form-control"/>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <label asp-for="MOBILE"></label>
+            </td>
+            <td>
+                <input asp-for="MOBILE" class="form-control"/>
+                <span asp-validation-for="MOBILE" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan = "2">
+                <input id="Submit1" type="submit" value="submit" class="btn btn-primary"/>
+            </td>
+        </tr>
+    </table>
+</form>
